@@ -162,60 +162,72 @@ document.addEventListener('DOMContentLoaded', function() {
 			subTasks.forEach(subTask => {
 				if(!subTask.checked) return;
 
-				if(subTask.value == "Other"){
-					otherSubs.forEach(otherSub =>{
-						if(otherSub === "") return;
-
+				switch (subTask.value) {
+					case "Peer Code Review 1":
 						resp.issueUpdates.push({
 							"fields":
 							{
 								"project":{"key":project},
-								"summary":otherSub,
+								"summary":subTask.value,
 								"issuetype":{"name":"Sub-task"},
-								"parent":{"key":project + "-" + story} //Custom fields can be added here as a new property
+								"parent":{"key":project + "-" + story},
+								"timetracking": {"remainingEstimate": "30m", "originalEstimate": "30m"}
+							}
+							});
+						break;
+
+					case "Peer Code Review 2":
+						resp.issueUpdates.push({
+							"fields":
+							{
+								"project":{"key":project},
+								"summary":subTask.value,
+								"issuetype":{"name":"Sub-task"},
+								"parent":{"key":project + "-" + story},
+								"timetracking": {"remainingEstimate": "30m", "originalEstimate": "30m"}
 							}
 						});
-					});
-				}
-				else if (subTask.value == "Peer Code Review 1" || subTask.value == "Peer Code Review 2") {
-					resp.issueUpdates.push({
-						"fields":
-						{
-							"project":{"key":project},
-							"summary":otherSub,
-							"issuetype":{"name":"Sub-task"},
-							"parent":{"key":project + "-" + story}, //Custom fields can be added here as a new property,
-							"timetracking": {"remainingEstimate": "30m","originalEstimate": "30m"}
-						}
-					});
-				}
-				else if (subTask.value == "PO Review") {
-					resp.issueUpdates.push({
-						"fields":
-						{
-							"project":{"key":project},
-							"summary":otherSub,
-							"issuetype":{"name":"Sub-task"},
-							"parent":{"key":project + "-" + story}, //Custom fields can be added here as a new property,
-							"timetracking": {"remainingEstimate": "15m", "originalEstimate": "15m"}
-						}
-					});
-				}
-				else {
-					//Uncomment this to calculate the hours of custom sub-tasks
-					// var subTaskTime = document.getElementsByName(subTask.value)[0].value;
-					// if(subTaskTime != ""){
-						// subTaskTime = " (" + subTaskTime + ")";
-					// }
-					resp.issueUpdates.push({
-						"fields":
-						{
-							"project":{"key":project},
-							"summary":subTask.value, // + subTaskTime, (this is part of the calculation)
-							"issuetype":{"name":"Sub-task"},
-							"parent":{"key":project + "-" + story} //Custom fields can be added here as a new property
-						}
-					});
+						break;
+
+					case "PO Review":
+						resp.issueUpdates.push({
+							"fields":
+							{
+								"project":{"key":project},
+								"summary":subTask.value,
+								"issuetype":{"name":"Sub-task"},
+								"parent":{"key":project + "-" + story},
+								"timetracking": {"remainingEstimate": "15m", "originalEstimate": "15m"}
+							}
+						});
+						break;
+
+						case "Other":
+							otherSubs.forEach(otherSub =>{
+								if(otherSub === "") return;
+
+								resp.issueUpdates.push({
+									"fields":
+									{
+										"project":{"key":project},
+										"summary":otherSub,
+										"issuetype":{"name":"Sub-task"},
+										"parent":{"key":project + "-" + story} //Custom fields can be added here as a new property
+									}
+								});
+							});
+							break;
+
+					default:
+						resp.issueUpdates.push({
+							"fields":
+							{
+								"project":{"key":project},
+								"summary":subTask.value, // + subTaskTime, (this is part of the calculation)
+								"issuetype":{"name":"Sub-task"},
+								"parent":{"key":project + "-" + story}
+							}
+						});
 				}
 			});
 		});
@@ -229,6 +241,5 @@ document.addEventListener('DOMContentLoaded', function() {
 			alert("Error, please Note: \nThis extension will only work with Jira page opened \n(ie. https://domain.atlassian.net) and logged in.\nPlease reload.");
 		}
 	  };
-
-  }, false);
+	}, false);
 }, false);
