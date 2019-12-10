@@ -20,7 +20,7 @@
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-	width: 180px;
+	width: 250px;
 }
 .dark-matter h1 {
     padding: 0px 0px 10px 40px;
@@ -65,7 +65,7 @@
 .dark-matter select {
 	background: #d8d8d8 url('down-arrow.png') no-repeat right;
     appearance:none;
-    -webkit-appearance:none; 
+    -webkit-appearance:none;
     -moz-appearance: none;
     text-indent: 0.01px;
     text-overflow: '';
@@ -81,9 +81,9 @@
     width: 70%;
 }
 
-.dark-matter .button {    
+.dark-matter .button {
     border: none;
-    padding: 10px 25px 10px 25px;    
+    padding: 10px 25px 10px 25px;
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -122,12 +122,12 @@ input:invalid {
 .error {
   width  : 100%;
   padding: 0;
- 
+
   font-size: 80%;
   color: white;
   background-color: #900;
   border-radius: 0 0 5px 5px;
- 
+
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
@@ -156,7 +156,7 @@ input:invalid {
 .subtitle{
 	color: #ffffff;
 	font-size: x-small;
-	margin-left: 82px;
+	/* margin-left: 82px; */
 }
 
 .otherTask{
@@ -178,7 +178,7 @@ input:invalid {
 
 .greenColor{
 	background: #129817 !important;
-	color: #FFFFFF!important;		
+	color: #FFFFFF!important;
 }
 
 .greenColor:hover {
@@ -287,5 +287,3 @@ input:invalid {
     background-color: #dcdcdc;
 	cursor: default;
 }
-
-

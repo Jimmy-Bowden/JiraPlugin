@@ -3,13 +3,15 @@
     <head>
         <script src="background.js"></script>
 		<script src="clipboard.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="style.css">		
+		<link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body class="default">
         <form id="addbookmark" style="height= 560px" class="dark-matter ">
 			<span class="title">Jira Sub-Task Creator</span>
 			<br/>
-			<span class="subtitle">by Luciano Gaube</span>
+			<span class="subtitle">By Luciano Gaube -- </span>
+      <span class="subtitle">Modded By Jimmy Bowden</span>
+
 			<br/>
 			<br/>
 			<table class="table-custom">
@@ -23,7 +25,7 @@
 				</tr>
 				<tr>
 					<td>
-						<input type="text" id="proj" required placeholder="JIRA">
+						<input type="text" id="proj" required placeholder="JIRA" value="UN">
 					</td>
 					<td>
 						<input type="text" id="iv" required placeholder="1234">
@@ -31,16 +33,16 @@
 				</tr>
 			</table>
 
-			<div class="dark-matter checkboxes">		
+			<div class="dark-matter checkboxes">
 				<table class="table-custom subtasks">
-					<tr>
+          <tr>
 						<td>
-							<input type="checkbox" name="t" id="QA-Prep" value="QA Prep" checked>QA Prep </input>
+							<input type="checkbox" name="t" id="Fix-Bug" value="Fix Bug" checked>Fix Bug </input>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<input type="checkbox" name="t" id="QA-Exec" value="QA Exec" checked>QA Exec  </input>
+							<input type="checkbox" name="t" id="Verify" value="Verify" checked>Verify </input>
 						</td>
 					</tr>
 					<tr>
@@ -48,49 +50,64 @@
 							<input type="checkbox" name="t" id="Unit-Tests" value="Unit Tests" checked>Unit Tests </input>
 						</td>
 					</tr>
-					<tr>
+          <tr>
 						<td>
-							<input type="checkbox" name="t" id="Show-And-Tell" value="Show And Tell" checked>Show And Tell </input>
+							<input type="checkbox" name="t" id="E2E-Tests" value="E2E Tests" checked>E2E Tests </input>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<input type="checkbox" name="t" id="Code-Review" value="Code Review & Merge" checked>Code Review </input>
+							<input type="checkbox" name="t" id="Peer-Code-Review-1" value="Peer Code Review 1" checked>Peer Code Review 1 </input>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<input type="checkbox" name="t" id="Test-Case-Review" value="Test Case Review" checked>Test Case Review </input>
+							<input type="checkbox" name="t" id="Peer-Code-Review-2" value="Peer Code Review 2" checked>Peer Code Review 2 </input>
 						</td>
 					</tr>
-					<tr>
-						<td>
-							<input type="checkbox" name="t" id="Unit-Test-Review" value="Unit Test Review" checked>Unit Test Review </input>
-						</td>					
-					</tr>
-					<tr>
-						<td>
-							<input type="checkbox" name="t" id="Automated-Test" value="Automated Test" >Automated Test </input>
+          <tr>
+            <td>
+							<input type="checkbox" name="t" id="Update-Testrails" value="Update Testrails" checked>Update Testrails </input>
 						</td>
 					</tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="t" id="PO-Review" value="PO Review" checked>PO Review </input>
+          </td>
+        </tr>
+          <tr>
+						<td>
+							<input type="checkbox" name="t" id="Run-Manual-Acceptance-Tests" value="Run Manual Acceptance Tests" >Run Manual Acceptance Tests </input>
+						</td>
+					</tr>
+          <tr>
+						<td>
+							<input type="checkbox" name="t" id="Write-Manual-Acceptance-Tests" value="Write Manual Acceptance Tests" >Write Manual Acceptance Tests </input>
+						</td>
+					</tr>
+          <tr>
+            <td>
+              <input type="checkbox" name="t" id="Write-User-Docs" value="Write User Docs" >Write User Docs </input>
+            </td>
+          </tr>
 					<tr style="display: none;">
 						<td>
 							<input  type="checkbox" name="t" id="Other" value="Other" checked>Other*: </input>
 						</td>
 					</tr>
 				</table>
-				
+
 				<input type="text" class="otherTask" id="otherTask" placeholder="Custom Sub-task here*">
 				<br>
 				<span style="font-size: x-small">(* use ';' separator for multiple items)</span>
-			</div>		
-			
-			
-			
+			</div>
+
+
+
 			<div id="myProgress">
 				<input type="button" class="lightBlueColor button clip" id="checkPage" value="Create Sub-Tasks"/>
 				<div id="myBar" class="lightBlueColor"></div>
-			</div>		
+			</div>
 
 			<br>
 			<span>Choose Template:</span><select id="templates" class="agileTeam">
@@ -100,10 +117,10 @@
 			  <option name="team" value="task">Task Template</option>
 			  <option name="team" value="bug">Bug Template</option>
 			</select>
-			<br>	
+			<br>
 			<!-- Trigger -->
 			<button type="button" style="margin-top: 7px" id="story" name="temp" class="lightBlueColor btn button" data-clipboard-text="{panel:title=(i) *User Statement*}
-			*AS* 
+			*AS*
 			*I WANT*
 			*So THAT*
 			{panel}
@@ -147,7 +164,7 @@
 			</button>
 
 			<button type="button" style="margin-top: 7px" id="cloudStory" name="temp" class="lightBlueColor btn button" data-clipboard-text="{panel:title=(i) *User Statement*}
-			*AS* 
+			*AS*
 			*I WANT*
 			*So THAT*
 			{panel}
