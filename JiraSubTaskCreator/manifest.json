@@ -3,17 +3,14 @@
   "name": "SC Jira Sub-task Creator",
   "version": "1.0.8",
   "background": {
-      "scripts": ["background.js"],
-      "persistent": false
-    },
+    "scripts": ["background.js"],
+    "persistent": false
+  },
   "description": "SC Jira Sub-task Creator",
   "homepage_url": "https://github.com/Jimmy-Bowden/SC-Jira-Plugin",
-	"browser_action": {
-        "default_icon": "icon.png",
-        "default_popup": "index.html"
-    },
-	"permissions": [
-		"activeTab",
-		"tabs"
-	]
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "index.html"
+  },
+  "permissions": ["activeTab", "tabs", "clipboardWrite"]
 }
