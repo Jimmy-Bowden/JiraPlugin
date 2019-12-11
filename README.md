@@ -19,7 +19,17 @@ When you are creating a new sub-task, DO NOT CLICK outside the plug-in, doing so
 
 After clicking the CREATE button, wait for the timer to click away as Jira needs some seconds to process the request.
 
+## Set up
+1. Clone this repo
+2. Go to chrome://extensions/
+3. Enable Developer mode
+4. Click load unpacked
+5. Select the subdirectory "JiraSubTaskCreator" in the repo you cloned
 
+You should see an icon for the extension now.
 
-
+## New Features for SilverCloud
+* Changed subtasks to SilverCloud specific subtasks
+* Adds time on subtask creation for PO Review, Peer Code Review 1/2
+* Template drop down/button now copy SilverCloud templates to the clipboard
 
