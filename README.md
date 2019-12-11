@@ -25,6 +25,7 @@ After clicking the CREATE button, wait for the timer to click away as Jira needs
 3. Enable Developer mode
 4. Click load unpacked
 5. Select the subdirectory "JiraSubTaskCreator" in the repo you cloned
+
 You should see an icon for the extension now.
 
 ## New Features for SilverCloud
